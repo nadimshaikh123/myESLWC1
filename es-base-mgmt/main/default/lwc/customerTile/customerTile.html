@@ -1,17 +1,12 @@
 <template>
-    <div>
-    <lightning-layout vertical-align="center">
-        <lightning-layout-item>
-        <lightning-icon 
-            icon-name="doctype:image" 
-            alternative-text="image">
-        </lightning-icon>
-    </lightning-layout-item>
-    <lightning-layout-item padding="horizontal-small">
-        <a href="#" alt="">Nadim</a>
-        <p>Status: Not Contacted</p>
-        <p>Email: nadim.shaikh@amazon.com</p>
-    </lightning-layout-item>
-    </lightning-layout>
+    <div class="slds-card">
+        <ul class="slds-list_vertical slds-has-dividers_bottom-space">
+            <template for:each={customers} for:item="record">
+                <li class="slds-item" key={record.Id}>
+                    <c-customer-tile object="lead" customer={record}
+                    ></c-customer-tile>
+                </li>
+            </template>
+        </ul>
     </div>
 </template>
